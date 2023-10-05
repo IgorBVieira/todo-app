@@ -1,6 +1,6 @@
-# Título do projeto
+# Todo App - React
 
-Um parágrafo da descrição do projeto vai aqui
+Este é um pequeno app de tarefas feito com o framework React para fins de aprendizado.
 
 ## 🚀 Começando
 
