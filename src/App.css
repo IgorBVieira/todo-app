@@ -20,3 +20,46 @@
     text-align: center;
     padding: 1em;
 }
+
+.form-todo {
+    padding: 1em;
+    margin: 0 2em;
+    border-bottom: 1px solid black;
+}
+
+.form-todo h2,
+.list-todo h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.form-control label {
+    font-weight: bold;
+    font-size: .7em;
+    margin-bottom: .4em;
+}
+
+.form-control input {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 0.5em;
+    color: black;
+}
+
+input[type="submit"] {
+    background-color: rgba(255, 255, 255, 0.726);
+    color: rgb(0, 0, 0);
+    display: block;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1em;
+    cursor: pointer;
+}
