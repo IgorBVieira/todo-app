@@ -21,20 +21,34 @@ function App() {
       done: false,
     };
 
-    console.log(todo);
-    
     //Enviar dados para o banco com fetch POST
-    await fetch(API + '/todos' ,{
-      method: 'POST',
+    await fetch(API + "/todos", {
+      method: "POST",
       body: JSON.stringify(todo),
       headers: {
-        'Content-type': 'application/json',
+        "Content-type": "application/json",
       },
     });
-    
+
     setTime("");
     setTitle("");
   };
+
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true);
+
+      const res = await fetch(API + "/todos")
+        .then((res) => res.json())
+        .then((data) => data)
+        .catch((err) => console.error(err));
+
+      setLoading(false);
+      setTodos(res);
+    };
+
+    loadData();
+  });
 
   return (
     <div className="App">
@@ -47,23 +61,23 @@ function App() {
           <div className="form-control">
             <label htmlFor="title">O que você vai fazer?</label>
             <input
-            type="text"
-            name="title"
-            placeholder="Titulo da tarefa"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title || ''}
-            required
+              type="text"
+              name="title"
+              placeholder="Titulo da tarefa"
+              onChange={(e) => setTitle(e.target.value)}
+              value={title || ""}
+              required
             />
           </div>
           <div className="form-control">
             <label htmlFor="time">Duração: </label>
             <input
-            type="text"
-            name="time"
-            placeholder="Tempo estimado (em horas)"
-            onChange={(e) => setTime(e.target.value)}
-            value={time || ''}
-            required
+              type="text"
+              name="time"
+              placeholder="Tempo estimado (em horas)"
+              onChange={(e) => setTime(e.target.value)}
+              value={time || ""}
+              required
             />
           </div>
           <input type="submit" value={"Criar Tarefa"} />
@@ -74,6 +88,14 @@ function App() {
         {todos.length === 0 && (
           <div className="empty-todo">Nenhuma tarefa encontrada</div>
         )}
+        {todos.map((todo) => {
+          return (
+            <div className="todo">
+              <h1>{todo.title}</h1>
+              <p>Tempo estimado: {todo.time}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
