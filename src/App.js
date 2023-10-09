@@ -47,6 +47,7 @@ function App() {
         .catch((err) => {
           console.error(err);
           setLoading(false); 
+          alert("Erro ao carregar tarefas");
         });
 
       setLoading(false);
