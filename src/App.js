@@ -44,7 +44,10 @@ function App() {
       const res = await fetch(API + "/todos")
         .then((res) => res.json())
         .then((data) => data)
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          console.error(err);
+          setLoading(false); 
+        });
 
       setLoading(false);
       setTodos(res);
