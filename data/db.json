@@ -1,20 +1,9 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Todo 1",
-      "completed": false
-    },
-    {
-      "id": 0.9275988064243557,
-      "title": "OE",
+      "id": 0.6016303531994733,
+      "title": "TASK 1",
       "time": "12",
-      "done": false
-    },
-    {
-      "id": 0.9228663335179224,
-      "title": "TT",
-      "time": "22",
       "done": false
     }
   ]

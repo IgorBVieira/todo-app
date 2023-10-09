@@ -57,6 +57,15 @@ function App() {
     loadData();
   },[]);
 
+  const handleDelete = async (id) => {
+    await fetch(API + '/todos/' + id,{
+      method: 'DELETE',
+    })
+    // Atualizar o estado de tarefas com os novos dados mas somente os que não foram deletados.
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
+
+  }
+
 
   if (loading) {
     return (
@@ -112,7 +121,7 @@ function App() {
               <span>
                 {!todo.done ? <BsBookmarkCheck/> : <BsBookmarkCheckFill/>}
               </span>
-              <BsTrash/>
+              <BsTrash onClick={() => handleDelete(todo.id)}/>
             </div>
           );
         })}
