@@ -30,6 +30,9 @@ function App() {
       },
     });
 
+    // Atualizar o estado de tarefas com os novos dados.
+    setTodos((prevState) => [...prevState, todo]);
+
     setTime("");
     setTitle("");
   };
@@ -48,7 +51,7 @@ function App() {
     };
 
     loadData();
-  });
+  },[]);
 
   return (
     <div className="App">
@@ -90,7 +93,7 @@ function App() {
         )}
         {todos.map((todo) => {
           return (
-            <div className="todo">
+            <div className="todo" key={todo.id}>
               <h1>{todo.title}</h1>
               <p>Tempo estimado: {todo.time}</p>
             </div>
