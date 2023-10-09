@@ -53,6 +53,15 @@ function App() {
     loadData();
   },[]);
 
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="loader"></div>
+      </div>
+    )
+  }
+
   return (
     <div className="App">
       <div className="todo-header">
