@@ -46,7 +46,7 @@ function App() {
         .then((data) => data)
         .catch((err) => {
           console.error(err);
-          setLoading(false); 
+          setLoading(false);
           alert("Erro ao carregar tarefas");
         });
 
@@ -55,24 +55,22 @@ function App() {
     };
 
     loadData();
-  },[]);
+  }, []);
 
   const handleDelete = async (id) => {
-    await fetch(API + '/todos/' + id,{
-      method: 'DELETE',
-    })
+    await fetch(API + "/todos/" + id, {
+      method: "DELETE",
+    });
     // Atualizar o estado de tarefas com os novos dados mas somente os que não foram deletados.
     setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
-
-  }
-
+  };
 
   if (loading) {
     return (
       <div className="loader-container">
         <div className="loader"></div>
       </div>
-    )
+    );
   }
 
   return (
@@ -116,12 +114,14 @@ function App() {
         {todos.map((todo) => {
           return (
             <div className="todo" key={todo.id}>
-              <h3 className={todo.done ? 'todo-done' : 'todo-not-done'}>{todo.title}</h3>
+              <h3 className={todo.done ? "todo-done" : "todo-not-done"}>
+                {todo.title}
+              </h3>
               <p>Tempo estimado: {todo.time}</p>
               <span>
-                {!todo.done ? <BsBookmarkCheck/> : <BsBookmarkCheckFill/>}
+                {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
               </span>
-              <BsTrash onClick={() => handleDelete(todo.id)}/>
+              <BsTrash onClick={() => handleDelete(todo.id)} />
             </div>
           );
         })}
