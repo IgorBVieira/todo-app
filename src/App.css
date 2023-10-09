@@ -86,3 +86,44 @@ input[type="submit"] {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .list-todo {
+    padding: 0 1em 2em;
+    margin: 1em 2em;
+  }
+
+  .list-todo h2 {
+    margin-bottom: 0;
+  }
+
+  .list-todo p {
+    text-align: center;
+  }
+
+  .todo {
+    border-bottom: 1px solid black;
+    padding: 1em 0;
+  }
+
+  .todo-done {
+    text-decoration: line-through;
+    color: rgba(0, 255, 255);
+  }
+
+  .todo p {
+    text-align: left;
+    font-style: italic;
+    font-size: .7em;
+    margin-bottom: 1.5em;
+  }
+
+.todo svg {
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-right: 1em;
+    transition: .5s;
+}
+
+.todo svg:hover {
+    color: rgba(0, 255, 255)
+}

@@ -107,8 +107,12 @@ function App() {
         {todos.map((todo) => {
           return (
             <div className="todo" key={todo.id}>
-              <h1>{todo.title}</h1>
+              <h3 className={todo.done ? 'todo-done' : 'todo-not-done'}>{todo.title}</h3>
               <p>Tempo estimado: {todo.time}</p>
+              <span>
+                {!todo.done ? <BsBookmarkCheck/> : <BsBookmarkCheckFill/>}
+              </span>
+              <BsTrash/>
             </div>
           );
         })}
