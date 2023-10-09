@@ -65,6 +65,22 @@ function App() {
     setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   };
 
+  const handleEdit = async (todo) => {
+    todo.done = !todo.done;
+
+    const data = await fetch(API + "/todos/" + todo.id, {
+      method: "PUT",
+      body: JSON.stringify(todo),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
+    setTodos((prevState) =>
+      prevState.map((t) => (t.id === data.id ? (t = data) : t))
+    );
+  };
+
   if (loading) {
     return (
       <div className="loader-container">
@@ -118,7 +134,7 @@ function App() {
                 {todo.title}
               </h3>
               <p>Tempo estimado: {todo.time}</p>
-              <span>
+              <span onClick={() => handleEdit(todo)}>
                 {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
               </span>
               <BsTrash onClick={() => handleDelete(todo.id)} />
