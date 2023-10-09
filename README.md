@@ -58,9 +58,9 @@ Dar exemplos
 
 Mencione as ferramentas que você usou para criar seu projeto
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
+* [React](https://react.dev) - O framework web usado.
+* [Json-Server](https://www.npmjs.com/package/json-server) - Banco de dados para protótipo.
+* [Jest](https://jestjs.io/docs/getting-started) - Framework para testes.
 
 
 ## 🎁 Expressões de gratidão
